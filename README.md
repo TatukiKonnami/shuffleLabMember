@@ -3,7 +3,7 @@
 CSVを読ませてなんとなく使えばランダムにソートする奴。選択
 
 ``` python shuffleMenber.py ```
-
+一行目はheader
 - Name : 名前
 - Grade : 
   - B : 学部生
@@ -15,7 +15,7 @@ CSVを読ませてなんとなく使えばランダムにソートする奴。�
   
 ### CSV Formatt  
 ``` test.csv
-
+Name,grade,organize
 Name,Grade(B,M,A),Organize
 Name,Grade(B,M,A),Organize
 ...
