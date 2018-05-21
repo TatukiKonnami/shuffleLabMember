@@ -1,26 +1,75 @@
-import member
+from lib import member
 import csv
 import random
 
+def readCSV(path):
+    data = []
+
+    f = open(path,'r')
+
+    r = csv.DictReader(f)
+
+    for row in r:
+        print(type(row), row)
+        name = row['Name']
+        grade = row['grade']
+        org = row['organize']
+        a_member = member.Member()
+        a_member.setData(name, grade, org)
+        data.append(a_member)
+    
+    return data
+
+def decision(data):
+    shuffledata = []
+
+    for i in data:
+        if i.ORGANIZE == '0':
+            shuffledata.append(i)
+    
+    return shuffledata
+
+def sort(data):
+    shuffledata = []
+    exceptGrade = []
+
+    print('except grade (M, B, A)')
+    ex = input()
+    try:
+        ed = ex.split(' ')
+        for e in ed:
+            eg = member.Grade("A").setGrade(str(e))
+            exceptGrade.append(eg)
+        for i in data:
+            if i.GRADE not in exceptGrade:
+                shuffledata.append(i)
+    except:
+        shuffledata = data
+
+    return shuffledata
+
 data = []
-print('scan csv file.')
-path = input()
-f = open(path,'r')
+shuffledata = []
 itr = 1
 
-r = csv.DictReader(f)
+print('scan csv file.')
+path = input()
+data = readCSV(path)
 
-for row in r:
-    names = row.keys()
-    name = names[0]
-    grade = row[name]
-    member = Member()
-    member.setData(name, grade)
-    data.append(member)
+print('what is the purpose?(Organize decision -> OD | Sort)')
+purpose = input()
+if purpose == 'OD':
+    shuffledata = decision(data)
+elif purpose == 'Sort':
+    shuffledata = sort(data)
+else:
+    print('retry')
 
-random.shuffle(data)
 
-for i in data:
+
+random.shuffle(shuffledata)
+
+for i in shuffledata:
     print(itr)
     i.toString()
     itr = itr + 1
