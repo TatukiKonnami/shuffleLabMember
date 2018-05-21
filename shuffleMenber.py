@@ -3,9 +3,12 @@ from lib import memberList as l
 import csv
 import random
 
+
 data = []
 shuffledata = []
 itr = 1
+
+f = open('out.txt','w')
 
 print('scan csv file.')
 path = input()
@@ -20,11 +23,11 @@ elif purpose == 'Sort':
 else:
     print('retry')
 
-
-
 random.shuffle(shuffledata)
 
 for i in shuffledata:
     print(itr)
-    i.toString()
+    print(i.toString())
+    f.write(i.toString() + '\n')
     itr = itr + 1
+f.close()

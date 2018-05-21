@@ -25,4 +25,4 @@ class Member():
         self.ORGANIZE = organize
 
     def toString(self):
-        print('Name : ' + self.NAME + ' Grade : ' + self.GRADE.name)
+        return 'Name : ' + self.NAME + ' Grade : ' + self.GRADE.name
