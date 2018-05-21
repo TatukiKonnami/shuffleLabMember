@@ -1,6 +1,8 @@
 # shuffleLabMember
 
-CSVを読ませてなんとなく使えばランダムにソートする奴。
+CSVを読ませてなんとなく使えばランダムにソートする奴。選択
+
+``` python shuffleMenber.py ```
 
 - Name : 名前
 - Grade : 
@@ -43,6 +45,7 @@ Name,Grade(B,M,A),Organize
 
 ### お願い
 適当に作ったので適当に修正とかなんやらPRお待ちしています
+よく見ると綴とかもぐちゃぐちゃ
 
 Autor Konnnami
 
